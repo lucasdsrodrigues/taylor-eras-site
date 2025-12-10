@@ -1,0 +1,158 @@
+body {
+    margin: 0;
+    font-family: 'Helvetica Neue', sans-serif;
+    background: #f8f6f9;
+    color: #333;
+}
+
+/* HERO (cabeçalho) */
+.hero {
+    text-align: center;
+    padding: 60px 20px;
+    background: linear-gradient(180deg, #f3e9ff, #ffffff);
+}
+
+.logo {
+    width: 180px;
+    margin-bottom: 20px;
+}
+
+.hero h1 {
+    font-size: 42px;
+    margin: 10px 0;
+}
+
+.hero p {
+    font-size: 18px;
+    opacity: 0.8;
+}
+
+/* GRID DAS ERAS */
+.eras-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+    padding: 40px;
+}
+
+/* CARD GENERAL */
+.era-card {
+    position: relative;
+    padding: 25px;
+    border-radius: 18px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    transition: 0.3s transform, 0.3s box-shadow;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    background-size: cover;
+    background-position: center;
+}
+
+/* Hover efeito com leve movimento */
+.era-card:hover {
+    transform: translateY(-5px) scale(1.03);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+/* FONTES POR ERA */
+.era-debut h3 { font-family: 'Playfair Display', serif; }
+.era-fearless h3 { font-family: 'Cormorant Garamond', serif; }
+.era-speaknow h3 { font-family: 'Parisienne', cursive; }
+.era-red h3 { font-family: 'Bebas Neue', sans-serif; letter-spacing: 1px; }
+.era-1989 h3 { font-family: 'Kalam', cursive; }
+.era-reputation h3 { font-family: 'UnifrakturCook', serif; }
+.era-lover h3 { font-family: 'Great Vibes', cursive; }
+.era-folklore h3 { font-family: 'Inter', sans-serif; }
+.era-evermore h3 { font-family: 'Merriweather', serif; }
+.era-midnights h3 { font-family: 'Montserrat', sans-serif; }
+.era-ttpd h3 { font-family: 'Special Elite', monospace; }
+.era-showgirl h3 { font-family: 'Poiret One', cursive; letter-spacing: 2px; }
+
+/* BACKGROUNDS COM GRADIENTE SUAVE NA BASE (Overlay só na base) */
+.era-debut { 
+    background: linear-gradient(to top, rgba(42,76,47,0.6) 0%, rgba(42,76,47,0) 50%), url('imagens/debut.jpg');
+}
+
+.era-fearless { 
+    background: linear-gradient(to top, rgba(197,157,68,0.6) 0%, rgba(197,157,68,0) 50%), url('imagens/fearless.jpg');
+}
+
+.era-speaknow { 
+    background: linear-gradient(to top, rgba(150,85,190,0.6) 0%, rgba(150,85,190,0) 50%), url('imagens/speaknow.jpg');
+}
+
+.era-red { 
+    background: linear-gradient(to top, rgba(200,0,0,0.6) 0%, rgba(200,0,0,0) 50%), url('imagens/red.jpg');
+}
+
+.era-1989 { 
+    background: linear-gradient(to top, rgba(0,120,200,0.6) 0%, rgba(0,120,200,0) 50%), url('imagens/1989.jpg');
+}
+
+.era-reputation { 
+    background: linear-gradient(to top, rgba(50,50,50,0.6) 0%, rgba(50,50,50,0) 50%), url('imagens/reputation.jpg');
+}
+
+.era-lover { 
+    background: linear-gradient(to top, rgba(255,150,200,0.6) 0%, rgba(255,150,200,0) 50%), url('imagens/lover.jpg');
+}
+
+.era-folklore { 
+    background: linear-gradient(to top, rgba(120,110,100,0.6) 0%, rgba(120,110,100,0) 50%), url('imagens/folklore.jpg');
+}
+
+.era-evermore { 
+    background: linear-gradient(to top, rgba(180,150,120,0.6) 0%, rgba(180,150,120,0) 50%), url('imagens/evermore.jpg');
+}
+
+.era-midnights { 
+    background: linear-gradient(to top, rgba(70,90,200,0.6) 0%, rgba(70,90,200,0) 50%), url('imagens/midnights.jpg');
+}
+
+.era-ttpd { 
+    background: linear-gradient(to top, rgba(100,90,80,0.6) 0%, rgba(100,90,80,0) 50%), url('imagens/ttpd.jpg');
+}
+
+.era-showgirl { 
+    background: linear-gradient(to top, rgba(255,120,0,0.6) 0%, rgba(255,120,0,0) 50%), url('imagens/showgirl.jpg');
+    font-weight: 600;
+}
+
+/* Garantir que a imagem cubra todo o card */
+.era-card {
+    background-size: cover;
+    background-position: center;
+}
+
+/* Texto acima do overlay */
+.era-card h3,
+.era-card p {
+    position: relative;
+    z-index: 1;
+    color: #fff; /* branco para contraste */
+    text-shadow: 1px 1px 6px rgba(0,0,0,0.7);
+    transition: text-shadow 0.3s, color 0.3s;
+}
+
+/* Brilho extra no título ao passar o mouse */
+.era-card:hover h3 {
+    text-shadow: 1px 1px 8px rgba(255,255,255,0.9), 1px 1px 6px rgba(0,0,0,0.6);
+}
+
+/* RESPONSIVO */
+@media (max-width: 600px) {
+    .era-card {
+        height: auto;
+        padding: 15px;
+    }
+
+    .hero h1 {
+        font-size: 32px;
+    }
+
+    .hero p {
+        font-size: 16px;
+    }
+}
