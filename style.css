@@ -1,158 +1,569 @@
-body {
+/* RESET */
+* {
     margin: 0;
-    font-family: 'Helvetica Neue', sans-serif;
-    background: #f8f6f9;
-    color: #333;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-/* HERO (cabeçalho) */
+/* BODY */
+body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    color: #2e2e2e;
+
+    background-color: #f5f1eb;
+    background-image: url("imagens/paper-vintage.png");
+    background-repeat: repeat;
+    background-size: 420px;
+}
+
+/* =========================
+   HERO / BANNER
+========================= */
+
 .hero {
+    position: relative;
+    padding: 140px 20px 160px;
     text-align: center;
-    padding: 60px 20px;
-    background: linear-gradient(180deg, #f3e9ff, #ffffff);
+
+    background:
+        radial-gradient(circle at top left, rgba(215,190,255,0.35), transparent 40%),
+        radial-gradient(circle at bottom right, rgba(255,200,210,0.35), transparent 45%);
 }
 
 .logo {
-    width: 180px;
-    margin-bottom: 20px;
+    width: 160px;
+    margin-bottom: 25px;
+}
+
+.hero-eyebrow {
+    display: block;
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #6c5ce7;
+    margin-bottom: 15px;
 }
 
 .hero h1 {
-    font-size: 42px;
-    margin: 10px 0;
+    font-family: 'Playfair Display', serif;
+    font-size: 48px;
+    color: #6c5ce7;
+    margin-bottom: 18px;
+}
+
+/* repetição das cores das eras */
+.hero h1::after {
+    content: "";
+    display: block;
+    width: 140px;
+    height: 4px;
+    margin: 20px auto 0;
+    border-radius: 3px;
+
+    background: linear-gradient(
+        90deg,
+        #a8d8ff,
+        #f7c948,
+        #c77dff,
+        #e74c3c,
+        #ffb6c1,
+        #1e3799
+    );
 }
 
 .hero p {
-    font-size: 18px;
-    opacity: 0.8;
+    max-width: 520px;
+    margin: 0 auto;
+    font-size: 17px;
+    line-height: 1.6;
+    color: #6b4a5f;
 }
 
-/* GRID DAS ERAS */
+/* =========================
+   BARRA DAS ERAS
+========================= */
+
+.eras-strip {
+    width: 100%;
+    height: 10px;
+    background: linear-gradient(
+        90deg,
+        #a8d8ff,
+        #f7c948,
+        #c77dff,
+        #e74c3c,
+        #74b9ff,
+        #2d3436,
+        #ffb6c1,
+        #b8cbb8,
+        #7d8f69,
+        #1e3799,
+        #3d3d3d,
+        #c75b12
+    );
+}
+
+/* =========================
+   SEÇÃO DAS ERAS
+========================= */
+
+.eras-section {
+    padding: 90px 0 110px;
+}
+
+
 .eras-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 70px 50px;
+
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 20px;
-    padding: 40px;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 280px));
+    gap: 28px;
+    justify-content: center;
+    background: transparent;
+
+    /* FUNDO VISÍVEL */
+    background:
+        radial-gradient(circle at 20% 15%, rgba(168,216,255,0.35), transparent 45%),
+        radial-gradient(circle at 80% 30%, rgba(255,182,193,0.35), transparent 45%),
+        linear-gradient(
+            180deg,
+            rgba(255,255,255,0.92),
+            rgba(250,246,255,0.96)
+        );
+
+    border-radius: 40px;
+
+    box-shadow:
+        0 25px 60px rgba(0,0,0,0.08),
+        inset 0 0 0 1px rgba(255,255,255,0.6);
+
+        background-image: url("imagens/eras.png");
 }
 
-/* CARD GENERAL */
+
+/* =========================
+   CARD BASE
+========================= */
+
 .era-card {
     position: relative;
-    padding: 25px;
-    border-radius: 18px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-    transition: 0.3s transform, 0.3s box-shadow;
+    height: 190px;
+    padding: 22px;
+    border-radius: 20px;
     overflow: hidden;
+    color: #ffffff;
+
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    background-size: cover;
-    background-position: center;
+
+    box-shadow:
+        0 10px 25px rgba(0,0,0,0.12),
+        0 0 0 1px rgba(255,255,255,0.35);
+
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
 }
 
-/* Hover efeito com leve movimento */
 .era-card:hover {
-    transform: translateY(-5px) scale(1.03);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    transform: translateY(-6px);
+    box-shadow:
+        0 18px 35px rgba(0,0,0,0.18),
+        0 0 0 2px rgba(255,255,255,0.45);
 }
 
-/* FONTES POR ERA */
-.era-debut h3 { font-family: 'Playfair Display', serif; }
-.era-fearless h3 { font-family: 'Cormorant Garamond', serif; }
-.era-speaknow h3 { font-family: 'Parisienne', cursive; }
-.era-red h3 { font-family: 'Bebas Neue', sans-serif; letter-spacing: 1px; }
-.era-1989 h3 { font-family: 'Kalam', cursive; }
-.era-reputation h3 { font-family: 'UnifrakturCook', serif; }
-.era-lover h3 { font-family: 'Great Vibes', cursive; }
-.era-folklore h3 { font-family: 'Inter', sans-serif; }
-.era-evermore h3 { font-family: 'Merriweather', serif; }
-.era-midnights h3 { font-family: 'Montserrat', sans-serif; }
-.era-ttpd h3 { font-family: 'Special Elite', monospace; }
-.era-showgirl h3 { font-family: 'Poiret One', cursive; letter-spacing: 2px; }
-
-/* BACKGROUNDS COM GRADIENTE SUAVE NA BASE (Overlay só na base) */
-.era-debut { 
-    background: linear-gradient(to top, rgba(42,76,47,0.6) 0%, rgba(42,76,47,0) 50%), url('imagens/debut.jpg');
+/* overlay escuro */
+.era-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        180deg,
+        rgba(0,0,0,0.15),
+        rgba(0,0,0,0.65)
+    );
+    z-index: 1;
 }
 
-.era-fearless { 
-    background: linear-gradient(to top, rgba(197,157,68,0.6) 0%, rgba(197,157,68,0) 50%), url('imagens/fearless.jpg');
+/* aura colorida */
+.era-card::after {
+    content: "";
+    position: absolute;
+    inset: -2px;
+    border-radius: inherit;
+    z-index: 0;
+    opacity: 0.6;
+    filter: blur(18px);
 }
 
-.era-speaknow { 
-    background: linear-gradient(to top, rgba(150,85,190,0.6) 0%, rgba(150,85,190,0) 50%), url('imagens/speaknow.jpg');
-}
-
-.era-red { 
-    background: linear-gradient(to top, rgba(200,0,0,0.6) 0%, rgba(200,0,0,0) 50%), url('imagens/red.jpg');
-}
-
-.era-1989 { 
-    background: linear-gradient(to top, rgba(0,120,200,0.6) 0%, rgba(0,120,200,0) 50%), url('imagens/1989.jpg');
-}
-
-.era-reputation { 
-    background: linear-gradient(to top, rgba(50,50,50,0.6) 0%, rgba(50,50,50,0) 50%), url('imagens/reputation.jpg');
-}
-
-.era-lover { 
-    background: linear-gradient(to top, rgba(255,150,200,0.6) 0%, rgba(255,150,200,0) 50%), url('imagens/lover.jpg');
-}
-
-.era-folklore { 
-    background: linear-gradient(to top, rgba(120,110,100,0.6) 0%, rgba(120,110,100,0) 50%), url('imagens/folklore.jpg');
-}
-
-.era-evermore { 
-    background: linear-gradient(to top, rgba(180,150,120,0.6) 0%, rgba(180,150,120,0) 50%), url('imagens/evermore.jpg');
-}
-
-.era-midnights { 
-    background: linear-gradient(to top, rgba(70,90,200,0.6) 0%, rgba(70,90,200,0) 50%), url('imagens/midnights.jpg');
-}
-
-.era-ttpd { 
-    background: linear-gradient(to top, rgba(100,90,80,0.6) 0%, rgba(100,90,80,0) 50%), url('imagens/ttpd.jpg');
-}
-
-.era-showgirl { 
-    background: linear-gradient(to top, rgba(255,120,0,0.6) 0%, rgba(255,120,0,0) 50%), url('imagens/showgirl.jpg');
-    font-weight: 600;
-}
-
-/* Garantir que a imagem cubra todo o card */
-.era-card {
-    background-size: cover;
-    background-position: center;
-}
-
-/* Texto acima do overlay */
+/* conteúdo */
 .era-card h3,
 .era-card p {
     position: relative;
-    z-index: 1;
-    color: #fff; /* branco para contraste */
-    text-shadow: 1px 1px 6px rgba(0,0,0,0.7);
-    transition: text-shadow 0.3s, color 0.3s;
+    z-index: 2;
 }
 
-/* Brilho extra no título ao passar o mouse */
-.era-card:hover h3 {
-    text-shadow: 1px 1px 8px rgba(255,255,255,0.9), 1px 1px 6px rgba(0,0,0,0.6);
+.era-card h3 {
+    font-size: 22px;
+    margin-bottom: 6px;
+}
+
+.era-card p {
+    font-size: 14px;
+    opacity: 0.95;
+}
+
+/* =========================
+   AURAS POR ERA
+========================= */
+
+.era-debut::after      { background: #a8d8ff; }
+.era-fearless::after   { background: #f7c948; }
+.era-speaknow::after   { background: #c77dff; }
+.era-red::after        { background: #e74c3c; }
+.era-1989::after       { background: #74b9ff; }
+.era-reputation::after { background: #2d3436; }
+.era-lover::after      { background: #ffb6c1; }
+.era-folklore::after   { background: #b8cbb8; }
+.era-evermore::after   { background: #7d8f69; }
+.era-midnights::after  { background: #1e3799; }
+.era-ttpd::after       { background: #3d3d3d; }
+.era-showgirl::after   { background: #c75b12; }
+
+/* =========================
+   IMAGENS (AJUSTE O CAMINHO)
+========================= */
+
+.era-debut      { background: url("imagens/debut.jpg") center/cover no-repeat; }
+.era-fearless   { background: url("imagens/fearless.jpg") center/cover no-repeat; }
+.era-speaknow   { background: url("imagens/speaknow.jpg") center/cover no-repeat; }
+.era-red        { background: url("imagens/red.jpg") center/cover no-repeat; }
+.era-1989       { background: url("imagens/1989.jpg") center/cover no-repeat; }
+.era-reputation { background: url("imagens/reputation.jpg") center/cover no-repeat; }
+.era-lover      { background: url("imagens/lover.jpg") center/cover no-repeat; }
+.era-folklore   { background: url("imagens/folklore.jpg") center/cover no-repeat; }
+.era-evermore   { background: url("imagens/evermore.jpg") center/cover no-repeat; }
+.era-midnights  { background: url("imagens/midnights.jpg") center/cover no-repeat; }
+.era-ttpd       { background: url("imagens/ttpd.jpg") center/cover no-repeat; }
+.era-showgirl   { background: url("imagens/showgirl.jpg") center/cover no-repeat; }
+
+/* =========================
+   RESPONSIVO
+========================= */
+
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 36px;
+    }
+
+    .eras-container {
+        padding: 0 25px;
+    }
+}
+.era-debut h3      { font-family: 'Cormorant Garamond', serif; }
+.era-fearless h3   { font-family: 'Great Vibes', cursive; }
+.era-speaknow h3   { font-family: 'Parisienne', cursive; }
+.era-red h3        { font-family: 'Playfair Display', serif; }
+.era-1989 h3       { font-family: 'Montserrat', sans-serif; letter-spacing: 1px; }
+.era-reputation h3 { font-family: 'UnifrakturCook', serif; }
+.era-lover h3      { font-family: 'Poiret One', cursive; }
+.era-folklore h3   { font-family: 'Merriweather', serif; }
+.era-evermore h3   { font-family: 'Special Elite', serif; }
+.era-midnights h3  { font-family: 'Inter', sans-serif; letter-spacing: 1px; }
+.era-ttpd h3       { font-family: 'Cormorant Garamond', serif; }
+.era-showgirl h3   { font-family: 'Bebas Neue', sans-serif; letter-spacing: 2px; }
+
+body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background-image: url("images/noise.png");
+    opacity: 0.04;
+    pointer-events: none;
+    z-index: 999;
+}
+body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background-image: url("imagens/noise.png");
+    opacity: 0.035;
+    pointer-events: none;
+    z-index: 999;
+}
+.era-transition {
+    height: 80px;
+    background: linear-gradient(
+        to right,
+        #a8d5ba,
+        #f7d37c,
+        #c8a2c8,
+        #d46a6a,
+        #7fbcd2,
+        #1f1f1f,
+        #f6b6d2,
+        #b6b6b6,
+        #c2a477,
+        #1b2a4e
+    );
+    opacity: 0.35;
+}
+/* =========================
+   NAVBAR / TOPBAR
+========================= */
+
+.topbar {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    padding: 25px 0;
+    z-index: 10;
+}
+
+.nav {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 40px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.nav-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    color: #6c5ce7;
+    text-decoration: none;
+    letter-spacing: 1px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 32px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    font-size: 14px;
+    color: #6b4a5f;
+    position: relative;
+}
+
+.nav-links a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 0;
+    height: 2px;
+    background: #6c5ce7;
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+.nav-cta {
+    padding: 10px 18px;
+    border-radius: 999px;
+    background: linear-gradient(90deg, #a8d8ff, #ffb6c1);
+    color: #2e2e2e;
+    font-size: 13px;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+/* =========================
+   FOOTER
+========================= */
+
+.footer {
+    margin-top: 140px;
+    padding: 60px 0 50px;
+
+    /* mesmo fundo do body */
+    background-color: #f5f1eb;
+    background-image: url("imagens/paper-vintage.png");
+    background-repeat: repeat;
+    background-size: 420px;
+
+    border-top: 1px solid rgba(0,0,0,0.08);
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 40px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer p {
+    font-size: 13px;
+    color: #6b4a5f;
+}
+
+.footer-links {
+    display: flex;
+    gap: 24px;
+}
+
+.footer-links a {
+    font-size: 13px;
+    text-decoration: none;
+    color: #6c5ce7;
+}
+/* =========================
+   FOOTER ICONS
+========================= */
+
+.footer-icons {
+    display: flex;
+    gap: 22px;
+}
+
+.footer-icons a {
+    width: 38px;
+    height: 38px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+    background: rgba(255,255,255,0.45);
+
+    transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.footer-icons a:hover {
+    transform: translateY(-3px);
+    background: rgba(108,92,231,0.15);
+}
+
+.footer-icons svg {
+    width: 18px;
+    height: 18px;
+    fill: #6c5ce7;
+}
+/* =========================
+   SEÇÃO POÉTICA / CITAÇÃO
+========================= */
+
+.quote-section {
+    padding: 120px 20px 120px;
+    text-align: center;
+
+    /* mantém o papel vintage */
+    background-color: #f5f1eb;
+    background-image: url("imagens/paper-vintage.png");
+    background-repeat: repeat;
+    background-size: 420px;
+    
+    position: relative;
+}
+
+/* mancha suave de cor (bem sutil) */
+.quote-section::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(circle at 30% 40%, rgba(168,216,255,0.25), transparent 50%),
+        radial-gradient(circle at 70% 60%, rgba(255,182,193,0.25), transparent 50%);
+    pointer-events: none;
+}
+
+.quote-section blockquote {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 70px 60px;
+
+
+    background: rgba(255,255,255,0.55);
+    backdrop-filter: blur(4px);
+
+    border-radius: 40px;
+
+    box-shadow:
+        0 20px 50px rgba(0,0,0,0.08),
+        inset 0 0 0 1px rgba(255,255,255,0.6);
+
+    position: relative;
+}
+
+.quote-section blockquote p {
+    font-family: 'Playfair Display', serif;
+    font-size: 32px;
+    line-height: 1.35;
+    color: #4b3b55;
+    margin-bottom: 25px;
+}
+
+.quote-section blockquote span {
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #6c5ce7;
+}
+
+/* detalhe decorativo */
+.quote-section blockquote::after {
+    content: "";
+    display: block;
+    width: 120px;
+    height: 4px;
+    margin: 35px auto 0;
+    border-radius: 2px;
+
+    background: linear-gradient(
+        90deg,
+        #a8d8ff,
+        #f7c948,
+        #c77dff,
+        #ffb6c1,
+        #1e3799
+    );
 }
 
 /* RESPONSIVO */
-@media (max-width: 600px) {
-    .era-card {
-        height: auto;
-        padding: 15px;
+@media (max-width: 768px) {
+    .quote-section blockquote {
+        padding: 50px 30px;
     }
 
-    .hero h1 {
-        font-size: 32px;
+    .quote-section blockquote p {
+        font-size: 24px;
     }
+}
+/* =========================
+   QUOTE FLUTUANTE
+========================= */
 
-    .hero p {
-        font-size: 16px;
+@keyframes floatQuote {
+    0% {
+        transform: translateY(0);
     }
+    50% {
+        transform: translateY(-12px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+.quote-section blockquote {
+    animation: floatQuote 7s ease-in-out infinite;
 }
