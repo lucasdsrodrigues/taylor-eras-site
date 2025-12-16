@@ -141,6 +141,10 @@ body {
         inset 0 0 0 1px rgba(255,255,255,0.6);
 
         background-image: url("imagens/eras.png");
+            background-color: rgba(255, 255, 255, 0.85);
+    background-blend-mode: lighten;
+
+    background-position: center;
 }
 
 
@@ -566,4 +570,104 @@ body::after {
 
 .quote-section blockquote {
     animation: floatQuote 7s ease-in-out infinite;
+}
+/* =========================
+   TIMELINE DAS ERAS
+========================= */
+
+.timeline-section {
+    padding: 100px 40px;
+    text-align: center;
+}
+
+.timeline-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 34px;
+    color: #6c5ce7;
+    margin-bottom: 60px;
+}
+
+.timeline {
+    position: relative;
+    max-width: 1100px;
+    margin: 0 auto;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.timeline::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: rgba(0,0,0,0.15);
+    z-index: 0;
+}
+
+.timeline-item {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    cursor: default;
+}
+
+.timeline-item span {
+    display: block;
+    font-size: 12px;
+    margin-bottom: 10px;
+    color: #6b4a5f;
+}
+
+.timeline-item p {
+    font-size: 13px;
+    margin-top: 12px;
+    color: #6b4a5f;
+}
+
+/* bolinha */
+.timeline-item::before {
+    content: "";
+    display: block;
+    margin: 0 auto;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: currentColor;
+
+    box-shadow: 0 0 0 6px rgba(255,255,255,0.9);
+    transition: transform 0.3s ease;
+}
+
+.timeline-item:hover::before {
+    transform: scale(1.3);
+}
+
+/* CORES DAS ERAS */
+.debut { color: #a8d8ff; }
+.fearless { color: #f7c948; }
+.speaknow { color: #c77dff; }
+.red { color: #e74c3c; }
+.n1989 { color: #74b9ff; }
+.reputation { color: #2d3436; }
+.lover { color: #ffb6c1; }
+.folklore { color: #b8cbb8; }
+.evermore { color: #7d8f69; }
+.midnights { color: #1e3799; }
+.ttpd { color: #3d3d3d; }
+.showgirl { color: #e29608; }
+
+/* RESPONSIVO */
+@media (max-width: 900px) {
+    .timeline {
+        flex-wrap: wrap;
+        gap: 30px;
+    }
+
+    .timeline::before {
+        display: none;
+    }
 }
