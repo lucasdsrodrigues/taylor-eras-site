@@ -14,7 +14,7 @@
     
     
 </head>
-
+<a href="#top" class="back-to-top">↑</a>
 <body>
 
 <!-- 🔹 NAVBAR -->
@@ -30,6 +30,7 @@
 
         <a href="#contato" class="nav-cta">Contato</a>
     </nav>
+    <button id="darkToggle" class="dark-toggle">🌙</button>
 </header>
 
 <!-- 🔹 HERO -->
@@ -206,6 +207,15 @@
 
     </div>
 </footer>
+<script>
+const toggle = document.getElementById("darkToggle");
 
+toggle.addEventListener("click", () => {
+    document.body.classList.toggle("dark");
+
+    toggle.textContent = 
+        document.body.classList.contains("dark") ? "☀️" : "🌙";
+});
+</script>
 </body>
 </html>
